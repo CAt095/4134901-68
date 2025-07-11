@@ -25,9 +25,15 @@
           "assignments": [
             {
               "id": "0e41653a-fc72-40cb-ac34-039fb347588f",
-              "name": "name",
-              "value": "=Tenny",
+              "name": "=name",
+              "value": "={{ $json.data.name }}",
               "type": "string"
+            },
+            {
+              "id": "b488096c-ad83-4f90-8392-55c77923b9bd",
+              "name": "age",
+              "value": "={{ $json.data.age }}",
+              "type": "number"
             }
           ]
         },
@@ -47,7 +53,7 @@
         "operation": "create",
         "projectId": "n8n-project-68-d7db8",
         "collection": "users",
-        "columns": "name"
+        "columns": "name,age"
       },
       "type": "n8n-nodes-base.googleFirebaseCloudFirestore",
       "typeVersion": 1.1,

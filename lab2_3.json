@@ -32,7 +32,7 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "http://localhost:5678/webhook-test/user",
+        "url": "http://localhost:5678/webhook-test/users",
         "sendBody": true,
         "bodyParameters": {
           "parameters": [
@@ -72,7 +72,7 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "a7924264-8810-416b-9376-4308e5b32d3a",
+  "versionId": "768d857f-13e0-4ea1-91fd-6bc7d5363301",
   "meta": {
     "instanceId": "0baecdcb943da5ee70b5bdce2a29554b607dcf63ebc92e3c63dab7786755b2c0"
   },
