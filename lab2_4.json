@@ -1,0 +1,93 @@
+{
+  "name": "lab2-4",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "usres",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "ed84cce0-fbc0-4e0b-a6c7-d6372f826b7a",
+      "name": "Webhook",
+      "webhookId": "c4900455-2202-4421-981b-318f40598f8d"
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "projectId": "n8n-project-68-d7db8",
+        "collection": "users",
+        "returnAll": true
+      },
+      "type": "n8n-nodes-base.googleFirebaseCloudFirestore",
+      "typeVersion": 1.1,
+      "position": [
+        200,
+        0
+      ],
+      "id": "8a63ae40-9569-4819-988d-94a69d9f9ad2",
+      "name": "Google Cloud Firestore",
+      "credentials": {
+        "googleFirebaseCloudFirestoreOAuth2Api": {
+          "id": "EM7r13UxZPVxVF81",
+          "name": "Google Firebase Cloud Firestore account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "respondWith": "allIncomingItems",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.3,
+      "position": [
+        400,
+        0
+      ],
+      "id": "7693b03b-f34b-4680-961a-129006278ebf",
+      "name": "Respond to Webhook"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Google Cloud Firestore",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Cloud Firestore": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "2b9c66c5-4b65-48ac-99c3-9d3e33485c43",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "0baecdcb943da5ee70b5bdce2a29554b607dcf63ebc92e3c63dab7786755b2c0"
+  },
+  "id": "9DqUYjIGdYlR3IWb",
+  "tags": []
+}

@@ -1,0 +1,81 @@
+{
+  "name": "lab2-3",
+  "nodes": [
+    {
+      "parameters": {
+        "formTitle": "folder",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "name",
+              "placeholder": "ชื่อ"
+            },
+            {
+              "fieldLabel": "age",
+              "fieldType": "number",
+              "placeholder": "อายุ"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "d4ce064e-5ddf-49eb-8564-db11dd48e716",
+      "name": "On form submission",
+      "webhookId": "929e56ce-f4b0-489c-953a-fc574235cee5"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://localhost:5678/webhook-test/user",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "name",
+              "value": "={{ $json.name }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        180,
+        0
+      ],
+      "id": "f3ae7888-bf96-4f1f-88f2-120e677c2322",
+      "name": "HTTP Request"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "On form submission": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "a7924264-8810-416b-9376-4308e5b32d3a",
+  "meta": {
+    "instanceId": "0baecdcb943da5ee70b5bdce2a29554b607dcf63ebc92e3c63dab7786755b2c0"
+  },
+  "id": "IL1KzWRWQM06YnJW",
+  "tags": []
+}
